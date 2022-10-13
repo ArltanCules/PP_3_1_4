@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+<div th:switch="${users}">
+    <h2 th:case="null"> No users Found!</h2>
+    <div th:case="*">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Username</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.surname}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.age}"></td>
+                <td><a th:href="@{/admin/user-update/{id}(id=${user.id})}">Edit</a> </td>
+                <td><a th:href="@{/admin/user_delete/{id}(id=${user.id})}">Delete</a></td>
+                <td><a th:href="@{/admin/user/{id}(id=${user.id})}">Inspect user's page</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/admin/user-create"> Create user</a> </p>
+</div>
+
+<form th:action="@{/}">
+    <button type="submit">Back</button>
+</form>
+
+
+<form class="form-signin" method="get" action="/logout">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
+</form>
+</form>
+
+
+</body>
+</html>

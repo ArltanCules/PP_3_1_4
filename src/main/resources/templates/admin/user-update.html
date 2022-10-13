@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder="Surname">
+    <label for="username">Email</label>
+    <input type="text" th:field="*{username}" id="username" placeholder="Username">
+    <label for="id">Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="Age">
+    <label for="id">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="Password">
+    <br/>
+
+    <select th:name="role" >
+        <option value="">Choose a Role</option>
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+    </select>
+
+    <br/>
+    <input type="submit" value="Update user">
+
+
+
+</form>
+
+<form th:action="@{/admin}">
+    <button type="submit">Back</button>
+</form>
+
+<form class="form-signin" method="get" action="/logout">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
+</form>
+</form>
+
+</body>
+</html>
