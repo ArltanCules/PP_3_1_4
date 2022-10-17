@@ -15,6 +15,7 @@ import java.util.Set;
 @Component
 public class SuccessUserHandler implements AuthenticationSuccessHandler {
     // Spring Security использует объект Authentication, пользователя авторизованной сессии.
+    // Spring Security использует объект Authentication, пользователя авторизованной сессии.
     private UserService userService;
 
     @Autowired
