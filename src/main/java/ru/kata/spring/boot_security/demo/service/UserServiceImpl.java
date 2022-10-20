@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void updateUser(Long id, User user,String role) {
+    public void updateUser(User user,String role) {
         Set<Role> roles = userDao.showByUserName(user.getName()).getRoles();
         if (!roles.contains(roleService.getRoleByName("ADMIN")) && role.equals("ADMIN")) {
             roles.add(roleService.getRoleByName(role));
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         } else {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }
-        userDao.updateUser(id, user);
+        userDao.updateUser(user);
 
     }
 

@@ -11,7 +11,7 @@ public interface UserService {
     void saveUser(User user,String role);
     void deleteUser(Long id);
 
-    void updateUser(Long id, User user,String role);
+    void updateUser( User user,String role);
     User getUser(Long id);
 
     User showByUserName(String username);
