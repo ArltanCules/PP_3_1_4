@@ -11,7 +11,6 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
